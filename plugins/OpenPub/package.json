@@ -1,0 +1,10 @@
+{
+  "name": "OpenPub",
+  "version": "1.0.3",
+  "description": "A plugin for publishing posts in the pub standard",
+  "author": "Conduction.nl",
+  "require" : {
+    "php": "^7.4.0",
+    "guzzlehttp/guzzle": "^6.3"
+    }
+  }
