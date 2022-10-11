@@ -79,41 +79,6 @@ function kiss_openpub_post_type() {
 
 add_action('init', 'kiss_openpub_post_type');
 function kiss_openpub_taxonomie() {
-
-
-    // The audiance fot publicaitons
-    $labels = array(
-        'name'              => _x( 'Audiences', 'taxonomy general name' ),
-        'singular_name'     => _x( 'Audience', 'taxonomy singular name' ),
-        'search_items'      => __( 'Search Audiences' ),
-        'all_items'         => __( 'All Audiences' ),
-        'parent_item'       => __( 'Parent Audience' ),
-        'parent_item_colon' => __( 'Parent Audience:' ),
-        'edit_item'         => __( 'Edit Audience' ),
-        'update_item'       => __( 'Update Audience' ),
-        'add_new_item'      => __( 'Add New Audience' ),
-        'new_item_name'     => __( 'New Audience Name' ),
-        'menu_name'         => __( 'Audience' ),
-    );
-
-
-    $args   = array(
-        'labels' => $labels,
-        'public' => true,
-        'show_in_rest' => true, // add support for Gutenberg editor
-        'publicly_queryable' => true,
-        'show_in_nav_menus' => true,
-        'show_in_rest' => true,
-        'show_ui' => true,
-        'show_tagcloud' => true,
-        'show_admin_column' => true,
-        'hierarchical' => false, // make it hierarchical (like categories)
-        'rewrite' => true,
-        'query_var' => true
-    );
-
-    register_taxonomy( 'openpub-audience', [ 'kiss_openpub_pub' ], $args );
-
     // Type of publications
     $labels = array(
         'name'              => _x( 'Types', 'taxonomy general name' ),
@@ -141,75 +106,10 @@ function kiss_openpub_taxonomie() {
         'show_admin_column' => true,
         'hierarchical' => false, // make it hierarchical (like categories)
         'rewrite' => true,
-        'query_var' => true
+        'query_var' => true,
     );
 
     register_taxonomy( 'openpub-type', [ 'kiss_openpub_pub' ], $args );
-
-    // Usage
-    $labels = array(
-        'name'              => _x( 'Usages', 'taxonomy general name' ),
-        'singular_name'     => _x( 'Usage', 'taxonomy singular name' ),
-        'search_items'      => __( 'Search Usages' ),
-        'all_items'         => __( 'All Usages' ),
-        'parent_item'       => __( 'Parent Usage' ),
-        'parent_item_colon' => __( 'Parent Usage:' ),
-        'edit_item'         => __( 'Edit Usage' ),
-        'update_item'       => __( 'Update Usage' ),
-        'add_new_item'      => __( 'Add New Usage' ),
-        'new_item_name'     => __( 'New Usage Name' ),
-        'menu_name'         => __( 'Usage' ),
-    );
-
-    $args   = array(
-        'labels' => $labels,
-        'public' => true,
-        'show_in_rest' => true, // add support for Gutenberg editor
-        'publicly_queryable' => true,
-        'show_in_nav_menus' => true,
-        'show_in_rest' => true,
-        'show_ui' => true,
-        'show_tagcloud' => true,
-        'show_admin_column' => true,
-        'hierarchical' => false, // make it hierarchical (like categories)
-        'rewrite' => true,
-        'query_var' => true
-    );
-
-    register_taxonomy( 'openpub-usage', [ 'kiss_openpub_pub' ], $args );
-
-    // When the show posts types
-    $labels = array(
-        'name'              => _x( 'Shows', 'taxonomy general name' ),
-        'singular_name'     => _x( 'Shown on', 'taxonomy singular name' ),
-        'search_items'      => __( 'Search Shows' ),
-        'all_items'         => __( 'All Shows' ),
-        'parent_item'       => __( 'Parent Shows' ),
-        'parent_item_colon' => __( 'Parent Shows:' ),
-        'edit_item'         => __( 'Edit Shows' ),
-        'update_item'       => __( 'Update Shows' ),
-        'add_new_item'      => __( 'Add New Shows on' ),
-        'new_item_name'     => __( 'New Show on  Name' ),
-        'menu_name'         => __( 'Shows' ),
-    );
-
-    $args   = array(
-        'labels' => $labels,
-        'public' => true,
-        'show_in_rest' => true, // add support for Gutenberg editor
-        'publicly_queryable' => true,
-        'show_in_nav_menus' => true,
-        'show_in_rest' => true,
-        'show_ui' => true,
-        'show_tagcloud' => true,
-        'show_admin_column' => true,
-        'hierarchical' => false, // make it hierarchical (like categories)
-        'rewrite' => true,
-        'query_var' => true
-    );
-
-    register_taxonomy( 'openpub-show-on', [ 'kiss_openpub_pub' ], $args );
-
 
     // Relevant skills for employees
     $labels = array(
