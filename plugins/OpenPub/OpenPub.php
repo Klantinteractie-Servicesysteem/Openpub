@@ -68,6 +68,17 @@ function kiss_openpub_post_type() {
                 'title',
                 'editor',
                 'revisions'
+            ),
+            'capabilities' => array(
+                'publish_posts' => 'publish_publications',
+                'edit_posts' => 'edit_publications',
+                'edit_others_posts' => 'edit_others_publications',
+                'delete_posts' => 'delete_publications',
+                'delete_others_posts' => 'delete_others_publications',
+                'read_private_posts' => 'read_private_publications',
+                'edit_post' => 'edit_publication',
+                'delete_post' => 'delete_publication',
+                'read_post' => 'read_publication'
             )
         )
     );
@@ -142,6 +153,10 @@ function kiss_openpub_taxonomie() {
 
 add_action( 'init', 'kiss_openpub_taxonomie' );
 
+
+/**
+ * Programatically fill Skills and Types
+ */
 function init_publication_types() {
     $publicationTypes = ["Nieuws", "Werkinstructie"];
 
@@ -180,3 +195,29 @@ function init_publication_skills() {
 
 
 add_action( 'init', 'init_publication_skills' );
+
+/**
+ * Create required user role for publication contributor
+ */
+remove_role('publication_contributor');
+
+$role = add_role( 'publication_contributor', 'Publicatie bijdrager',
+    array(
+        'read' => true,
+        'edit_published_posts' => true,
+        'publish_posts' => true,
+        'delete_published_posts' => true,
+        'edit_posts'	 => true,
+        'delete_posts' => true,
+
+        'publish_publications' => true,
+        'edit_publications' => true,
+        'edit_others_publications' => true,
+        'delete_publications' => true,
+        'delete_others_publications' => true,
+        'read_private_publications' => true,
+        'edit_publication' => true,
+        'delete_publication' => true,
+        'read_publication' => true,
+    )
+);
