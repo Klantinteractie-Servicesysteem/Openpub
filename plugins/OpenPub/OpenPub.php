@@ -142,3 +142,14 @@ function kiss_openpub_taxonomie() {
 
 
 add_action( 'init', 'kiss_openpub_taxonomie' );
+
+function init_publication_types() {
+    $publicationTypes = ["Werkbericht", "Werkinstructie"];
+
+    foreach ( $publicationTypes as $publicationType ) {
+        wp_insert_term($publicationType, "openpub-type");
+    }
+}
+
+
+add_action( 'init', 'init_publication_types' );
