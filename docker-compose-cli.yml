@@ -15,6 +15,8 @@ services:
       WORDPRESS_DB_NAME: exampledb
     volumes:
       - ./plugins:/var/www/html/wp-content/plugins
+      - ./CLI.md:/var/www/CLI.md
+    command: tail -F /var/www/html/wp-config.php #prevent container restarts @todo tail a txt file
 
   db:
     image: mysql:5.7
