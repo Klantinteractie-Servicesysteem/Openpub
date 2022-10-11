@@ -100,7 +100,7 @@ function kiss_openpub_taxonomie() {
         'show_ui' => true,
         'show_tagcloud' => true,
         'show_admin_column' => true,
-        'hierarchical' => false, // make it hierarchical (like categories)
+        'hierarchical' => true, // make it hierarchical (like categories)
         'rewrite' => true,
         'query_var' => true,
         
@@ -132,7 +132,7 @@ function kiss_openpub_taxonomie() {
         'show_ui' => true,
         'show_tagcloud' => true,
         'show_admin_column' => true,
-        'hierarchical' => false, // make it hierarchical (like categories)
+        'hierarchical' => true, // make it hierarchical (like categories)
         'rewrite' => true,
         'query_var' => true
     );
