@@ -140,11 +140,10 @@ function kiss_openpub_taxonomie() {
     register_taxonomy( 'openpub_skill', [ 'kiss_openpub_pub'], $args );
 }
 
-
 add_action( 'init', 'kiss_openpub_taxonomie' );
 
 function init_publication_types() {
-    $publicationTypes = ["Werkbericht", "Werkinstructie"];
+    $publicationTypes = ["Nieuws", "Werkinstructie"];
 
     foreach ( $publicationTypes as $publicationType ) {
         wp_insert_term($publicationType, "openpub-type");
@@ -153,3 +152,31 @@ function init_publication_types() {
 
 
 add_action( 'init', 'init_publication_types' );
+
+function init_publication_skills() {
+    $publicationSkills = [
+        "Afspraken", 
+        "Afval",
+        "Algemeen",
+        "Belastingen",
+        "Bouw en ruimtelijke ordening",
+        "Burgerzaken",
+        "Corona",
+        "Groen",
+        "KCC",
+        "Milieu",
+        "Openingstijden",
+        "Overig",
+        "Toeslagen",
+        "Vergunningen",
+        "Werk en inkomen",
+        "Zon"
+    ];
+
+    foreach ( $publicationSkills as $publicationSkill ) {
+        wp_insert_term($publicationSkill, "openpub_skill");
+    }
+}
+
+
+add_action( 'init', 'init_publication_skills' );
