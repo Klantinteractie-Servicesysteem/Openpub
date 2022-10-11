@@ -114,6 +114,9 @@ function kiss_openpub_taxonomie() {
         'hierarchical' => true, // make it hierarchical (like categories)
         'rewrite' => true,
         'query_var' => true,
+        'capabilities' => array( 
+            'assign_terms' => 'assign_types',
+         )
         
     );
 
@@ -145,7 +148,10 @@ function kiss_openpub_taxonomie() {
         'show_admin_column' => true,
         'hierarchical' => true, // make it hierarchical (like categories)
         'rewrite' => true,
-        'query_var' => true
+        'query_var' => true,
+        'capabilities' => array( 
+            'assign_terms' => 'assign_skills',
+         )
     );
 
     register_taxonomy( 'openpub_skill', [ 'kiss_openpub_pub'], $args );
@@ -169,7 +175,7 @@ function init_publication_types() {
 add_action( 'init', 'init_publication_types' );
 
 function init_publication_skills() {
-    $publicationSkills = [
+    $publicationSkills = array(
         "Afspraken", 
         "Afval",
         "Algemeen",
@@ -186,7 +192,7 @@ function init_publication_skills() {
         "Vergunningen",
         "Werk en inkomen",
         "Zon"
-    ];
+    );
 
     foreach ( $publicationSkills as $publicationSkill ) {
         wp_insert_term($publicationSkill, "openpub_skill");
@@ -199,25 +205,23 @@ add_action( 'init', 'init_publication_skills' );
 /**
  * Create required user role for publication contributor
  */
-remove_role('publication_contributor');
+if ( !get_role( 'publication_contributor' ) ) {
+    add_role( 'publication_contributor', 'Publicatie bijdrager',
+        array(
+            'read' => true,
+    
+            'assign_types' => true,
+            'assign_skills' => true,
 
-$role = add_role( 'publication_contributor', 'Publicatie bijdrager',
-    array(
-        'read' => true,
-        'edit_published_posts' => true,
-        'publish_posts' => true,
-        'delete_published_posts' => true,
-        'edit_posts'	 => true,
-        'delete_posts' => true,
-
-        'publish_publications' => true,
-        'edit_publications' => true,
-        'edit_others_publications' => true,
-        'delete_publications' => true,
-        'delete_others_publications' => true,
-        'read_private_publications' => true,
-        'edit_publication' => true,
-        'delete_publication' => true,
-        'read_publication' => true,
-    )
-);
+            'publish_publications' => true,
+            'edit_publications' => true,
+            'edit_others_publications' => true,
+            'delete_publications' => true,
+            'delete_others_publications' => true,
+            'read_private_publications' => true,
+            'edit_publication' => true,
+            'delete_publication' => true,
+            'read_publication' => true,
+        )
+    );
+}
