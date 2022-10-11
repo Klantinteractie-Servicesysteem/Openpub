@@ -91,7 +91,7 @@ function kiss_openpub_taxonomie() {
         'update_item'       => __( 'Update Type' ),
         'add_new_item'      => __( 'Add New Type' ),
         'new_item_name'     => __( 'New Types Name' ),
-        'menu_name'         => __( 'Type' ),
+        'menu_name'         => __( 'Types' ),
     );
 
     $args   = array(
@@ -123,7 +123,7 @@ function kiss_openpub_taxonomie() {
         'update_item'       => __( 'Update Skill' ),
         'add_new_item'      => __( 'Add New Skill' ),
         'new_item_name'     => __( 'New Skill Name' ),
-        'menu_name'         => __( 'Skill' ),
+        'menu_name'         => __( 'Skills' ),
     );
     $args   = array(
         'labels' => $labels,
