@@ -67,10 +67,6 @@ function kiss_openpub_post_type() {
             'supports' => array(
                 'title',
                 'editor',
-                'author',
-                'thumbnail',
-                'excerpt',
-                'comments',
                 'revisions'
             )
         )
@@ -107,6 +103,7 @@ function kiss_openpub_taxonomie() {
         'hierarchical' => false, // make it hierarchical (like categories)
         'rewrite' => true,
         'query_var' => true,
+        
     );
 
     register_taxonomy( 'openpub-type', [ 'kiss_openpub_pub' ], $args );
