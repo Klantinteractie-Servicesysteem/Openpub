@@ -204,7 +204,7 @@ add_action( 'init', 'init_publication_skills' );
  * Create publication contributor role
  */
 if ( !get_role( 'publication_contributor' ) ) {
-    add_role( 'publication_contributor', 'Publicatie bijdrager',
+    add_role( 'publication_contributor', 'KISS Redacteur',
         array(
             'read'                          => true,
             'assign_types'                  => true,
