@@ -6,9 +6,9 @@
             {
                 "key": "field_6347f2b324af5",
                 "label": "Titel",
-                "name": "title",
+                "name": "publication_title",
                 "type": "text",
-                "instructions": "",
+                "instructions": "Verplicht: vul hier de titel van de publicatie.",
                 "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -27,7 +27,7 @@
                 "label": "Publicatie",
                 "name": "publication_content",
                 "type": "wysiwyg",
-                "instructions": "",
+                "instructions": "Verplicht: vul hier de inhoud van de publicatie.",
                 "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -44,9 +44,9 @@
             {
                 "key": "field_6347f1c060aee",
                 "label": "Publicatietype",
-                "name": "openpub_type",
+                "name": "publication_type",
                 "type": "taxonomy",
-                "instructions": "",
+                "instructions": "Verplicht: selecteer hier een publicatietype.",
                 "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -65,10 +65,10 @@
             },
             {
                 "key": "field_6347f2cb24af6",
-                "label": "Skill",
-                "name": "openpub_skill",
+                "label": "Skills",
+                "name": "publication_skill",
                 "type": "taxonomy",
-                "instructions": "",
+                "instructions": "Optioneel: selecteer hier één of meerdere skills.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -84,6 +84,59 @@
                 "field_type": "multi_select",
                 "allow_null": 0,
                 "multiple": 0
+            },
+            {
+                "key": "field_6347fbe3f141f",
+                "label": "Startdatum",
+                "name": "publication_start_date",
+                "type": "date_time_picker",
+                "instructions": "Optioneel: selecteer hier de startdatum (en tijd) van de publicatie.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "Y-m-d H:i:s",
+                "return_format": "d/m/Y g:i a",
+                "first_day": 1
+            },
+            {
+                "key": "field_6347fb59f141e",
+                "label": "Einddatum",
+                "name": "publication_end_date",
+                "type": "date_time_picker",
+                "instructions": "Optioneel: selecteer hier de einddatum (en tijd) van de publicatie.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "Y-m-d H:i:s",
+                "return_format": "d/m/Y g:i a",
+                "first_day": 1
+            },
+            {
+                "key": "field_6347fcca8aa00",
+                "label": "Uitgelichte publicatie",
+                "name": "publication_featured",
+                "type": "true_false",
+                "instructions": "Optioneel: maak de publicatie uitgelicht, waardoor die beter zichtbaar wordt.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui_on_text": "Uitgelicht",
+                "ui_off_text": "Normaal",
+                "ui": 1
             }
         ],
         "location": [
