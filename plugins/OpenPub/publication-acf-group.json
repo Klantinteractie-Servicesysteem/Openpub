@@ -121,10 +121,10 @@
             },
             {
                 "key": "field_6347fcca8aa00",
-                "label": "Uitgelichte publicatie",
+                "label": "Belangrijke publicatie",
                 "name": "publication_featured",
                 "type": "true_false",
-                "instructions": "Optioneel: maak de publicatie uitgelicht, waardoor die beter zichtbaar wordt.",
+                "instructions": "Optioneel: markeer de publicatie als belangrijk, waardoor deze beter zichtbaar wordt.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -134,7 +134,7 @@
                 },
                 "message": "",
                 "default_value": 0,
-                "ui_on_text": "Uitgelicht",
+                "ui_on_text": "Belangrijk",
                 "ui_off_text": "Normaal",
                 "ui": 1
             }
