@@ -122,7 +122,7 @@ function register_kiss_openpub_taxonomies() {
          )
         
     );
-    register_taxonomy( 'openpub-type', [ 'kiss_openpub_pub' ], $args );
+    register_taxonomy( 'openpub_type', [ 'kiss_openpub_pub' ], $args );
 
     $labels = array(
         'name'              => _x( 'Skills', 'taxonomy general name' ),
@@ -169,7 +169,7 @@ function init_publication_types() {
     $publicationTypes = ["Nieuws", "Werkinstructie"];
 
     foreach ( $publicationTypes as $publicationType ) {
-        wp_insert_term($publicationType, "openpub-type");
+        wp_insert_term($publicationType, "openpub_type");
     }
 }
 add_action( 'init', 'init_publication_types' );
