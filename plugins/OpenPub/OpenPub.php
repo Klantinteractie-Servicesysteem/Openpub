@@ -65,8 +65,6 @@ function kiss_openpub_post_type() {
             'has_archive' => true,
             'show_in_rest' => true,
             'supports' => array(
-                'title',
-                'editor',
                 'revisions'
             ),
             'capabilities' => array(
@@ -114,6 +112,8 @@ function kiss_openpub_taxonomie() {
         'hierarchical' => true, // make it hierarchical (like categories)
         'rewrite' => true,
         'query_var' => true,
+        'show_in_quick_edit' => false,
+        'meta_box_cb' => false,
         'capabilities' => array( 
             'assign_terms' => 'assign_types',
          )
@@ -149,6 +149,8 @@ function kiss_openpub_taxonomie() {
         'hierarchical' => true, // make it hierarchical (like categories)
         'rewrite' => true,
         'query_var' => true,
+        'show_in_quick_edit' => false,
+        'meta_box_cb' => false,
         'capabilities' => array( 
             'assign_terms' => 'assign_skills',
          )
