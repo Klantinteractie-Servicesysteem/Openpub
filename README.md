@@ -33,11 +33,11 @@ $docker compose up
 Once your docker is running, you can configure the Wordpress installation:
 
 1. Navigate to `localhost/wp-admin`, initiate Wordpress and login
-2. Activate the plugins: OpenPub and Advanced Custom Fields
+2. Activate the plugins: OpenPub and Advanced Custom Fields  
    _Note: admin users can now create and maintain publication types and skills._
 3. Navigate to "Aangepaste velden" and then to "Gereedschap"
 4. Upload the file `plugins/OpenPub/publication-acf-group.json` within the "Veldgroepen Importeren" option
-5. Create one (or multiple) new users with the "KISS Redacteur" role
+5. Create one (or multiple) new users with the "KISS Redacteur" role  
    _Note: these users can now create and maintain publications._
 
 ## Wordpress CLI and Unit Testing
