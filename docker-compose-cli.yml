@@ -16,7 +16,8 @@ services:
     volumes:
       - ./plugins:/var/www/html/wp-content/plugins
       - ./CLI.md:/var/www/CLI.md
-    command: tail -F /var/www/html/wp-config.php #prevent container restarts @todo tail a txt file
+    #command: tail -F /var/www/html/wp-config.php #prevent container restarts @todo tail a txt file
+    tty: true
 
   db:
     image: mysql:5.7
