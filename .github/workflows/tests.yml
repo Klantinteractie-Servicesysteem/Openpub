@@ -41,10 +41,10 @@ jobs:
 #          mkdir api/vendor
 #          chmod +777 api/vendor
 #          chmod +777 -R api/public
-      - name: Build the Docker image
-        run: docker compose build -f docker-compose-cli.yml
-      - name: Run the docker image
-        run: docker-compose up -d  -f docker-compose-cli.yml
+#      - name: Build the Docker image
+#        run: docker compose build -f docker-compose-cli.yml
+      - name: Build and Run the docker image
+        run: docker-compose up -- build -d -f docker-compose-cli.yml
       - name: Taking some sleep (for containers to come up)
         run: sleep 45
       - name: Check if all containers are running
