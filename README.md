@@ -45,11 +45,20 @@ Once your docker is running, you can configure the Wordpress installation:
 For unit testing a separate CLI based wordpress is included, this can be started trough
 
 ```CLI
-$docker compose -f docker-compose-cli.yml up
+$ docker compose -f docker-compose-cli.yml up
 ```
 
 You can than run [Wordpress CLI commands](https://developer.wordpress.org/cli/commands/) with in the container. For example, getting a list of all available plugins can be done trough
 
 ```CLI
-$docker-compose exec wordpress wp plugin list
+$ docker compose exec wordpress wp plugin list
 ```
+
+Activating the plugin (if  it isnt activated yet)
+
+```CLI
+$ docker compose  exec wordpress wp plugin activate OpenPub
+```
+
+## Security
+We use [Grype](https://github.com/anchore/grype) as a scanning tool for containers
