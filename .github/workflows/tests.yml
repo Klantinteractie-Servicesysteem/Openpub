@@ -49,8 +49,6 @@ jobs:
         run: docker ps
       - name: ls container
         run: |
-          ls /
-          ls /var
           ls /var/www
           ls /var/www/html
 #      - name: Download wordpress
