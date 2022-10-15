@@ -44,9 +44,15 @@ jobs:
       - name: Build and Run the docker image
         run: docker compose -f docker-compose-cli.yml up -d --build
       - name: Taking some sleep (for containers to come up)
-        run: sleep 10
+        run: sleep 20
       - name: Check if all containers are running
         run: docker ps
+      - name: ls container
+        run: |
+          ls /
+          ls /var
+          ls /var/www
+          ls /var/www/html
 #      - name: Download wordpress
 #        run: docker compose -f docker-compose-cli.yml exec wordpress wp core download --locale=nl_NL
       - name: Install wordpresss
