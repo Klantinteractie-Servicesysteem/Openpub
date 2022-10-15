@@ -61,4 +61,4 @@ $ docker compose  exec wordpress wp plugin activate OpenPub
 ```
 
 ## Security
-We use [Grype](https://github.com/anchore/grype) as a scanning tool for containers as a [action](https://github.com/marketplace/actions/anchore-container-scan) in our git workkflow. The flow is wired to fail when an critcal error is found (in wich casses no new release artifacts are created).
+We use [Grype](https://github.com/anchore/grype) as a scanning tool for containers as a [action](https://github.com/marketplace/actions/anchore-container-scan) in our git workkflow. The flow is wired to fail when an critcal error is found (in wich casses no new release artifacts are created). This can be altered in the test.yamml worklow.  The fail point can be set to `low`,`medium`,`high` or `critical` alternativly the fail point can be ignored completly by setting `fail-build` to `false`. Aditiona configuration for snyk and trivy are also  included (but commented out) and are not recomended.
