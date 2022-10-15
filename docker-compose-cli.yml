@@ -4,8 +4,8 @@ services:
   wordpress:
     image: wordpress:cli-php8.1
     restart: always
-    build:
-      context: ./docker
+#    build:
+#      context: ./docker
     ports:
       - 80:80
       - 443:443
