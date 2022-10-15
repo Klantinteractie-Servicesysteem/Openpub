@@ -67,8 +67,6 @@ jobs:
           output-format: table
           #output-format: json
           #output-file: ${{ github.workspace }}/security.json
-      - name: Check container security with snyk
-        run:  docker scan wordpress --accept-license
       - name: List al the plugins
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin list
       - name: Activate the plugin
