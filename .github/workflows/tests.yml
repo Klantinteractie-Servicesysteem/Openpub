@@ -53,8 +53,8 @@ jobs:
         run: docker compose logs
       - name: Check container security with snyk
         run: |
-          apt-get update 
-          apt-get install docker-scan-plugin
+          sudo apt-get update 
+          sudo apt-get install docker-scan-plugin
           docker scan wordpress
       - name: List al the plugins
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin list
