@@ -81,10 +81,14 @@ jobs:
       - name: Install PHP Unit
         run: |
           docker compose -f docker-compose-cli.yml exec wordpress apt-get update
+      - name: Install PHP Unit
+        run: |
           docker compose -f docker-compose-cli.yml exec wordpress apt-get install wget
           docker compose -f docker-compose-cli.yml exec wordpress wget -O phpunit https://phar.phpunit.de/phpunit-9.phar
           docker compose -f docker-compose-cli.yml exec wordpress chmod +x phpunit
           docker compose -f docker-compose-cli.yml exec wordpress ./phpunit --version
+      - name: Run unit tests
+        run: docker compose exec wordpress phpunit wp-content/plugins/OpenPub
       - name: Chores
         if: (success() || failure())
         run: docker compose -f docker-compose-cli.yml down
