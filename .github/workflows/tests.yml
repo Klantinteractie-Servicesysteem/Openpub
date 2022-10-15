@@ -44,7 +44,7 @@ jobs:
 #      - name: Build the Docker image
 #        run: docker compose build -f docker-compose-cli.yml
       - name: Build and Run the docker image
-        run: docker compose up -f docker-compose-cli.yml -d 
+        run: docker compose -f docker-compose-cli.yml up -d --build
       - name: Taking some sleep (for containers to come up)
         run: sleep 45
       - name: Check if all containers are running
