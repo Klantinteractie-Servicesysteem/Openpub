@@ -159,6 +159,7 @@ function register_kiss_openpub_taxonomies() {
 
     register_taxonomy( 'openpub_skill', [ 'kiss_openpub_pub'], $args );
 }
+
 add_action( 'init', 'register_kiss_openpub_taxonomies' );
 
 

@@ -6,3 +6,5 @@ plugins/hello.php
 plugins/index.php
 
 plugins/advanced-custom-fields
+
+.idea/
