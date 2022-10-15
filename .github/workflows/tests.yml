@@ -56,9 +56,9 @@ jobs:
       - name: Chores
         if: (success() || failure())
         run: docker compose down
-    publish:
-      - uses: vimtor/action-zip@v1
-        with:
-          files: plugins/OpenPub
-          recursive: false
-          dest: OpenPub.zip
+  publish:
+    - uses: vimtor/action-zip@v1
+      with:
+        files: plugins/OpenPub
+        recursive: false
+        dest: OpenPub.zip
