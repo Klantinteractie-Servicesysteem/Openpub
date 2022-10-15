@@ -47,9 +47,8 @@ jobs:
         run: sleep 20
       - name: Check if all containers are running
         run: docker ps
-      - name: ls container
-        run: |
-          docker compose -f docker-compose-cli.yml exec wordpress ls /var/www/html
+      - name: Dumping the logs
+        run: docker-compose logs
       - name: Download wordpress
         run: docker compose -f docker-compose-cli.yml exec wordpress wp core download --locale=nl_NL
       - name: Configure wordpresss
