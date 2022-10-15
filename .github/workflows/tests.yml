@@ -36,11 +36,11 @@ jobs:
 
 
       # Prepare voor docker test
-      - name: Create vendor folder
-        run: |
-          mkdir api/vendor
-          chmod +777 api/vendor
-          chmod +777 -R api/public
+#      - name: Create vendor folder
+#        run: |
+#          mkdir api/vendor
+#          chmod +777 api/vendor
+#          chmod +777 -R api/public
       - name: Build the Docker image
         run: docker compose build -f docker-compose-cli.yml
       - name: Run the docker image
