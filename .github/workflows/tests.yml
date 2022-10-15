@@ -52,7 +52,7 @@ jobs:
       - name: Download wordpress
         run: docker compose -f docker-compose-cli.yml exec wordpress wp core download --locale=nl_NL
       - name: Configure wordpresss
-        run: docker compose -f docker-compose-cli.yml exec wordpress wp config create --dbname=exampledb --dbuser=exampleuser --dbpass=examplepass --locale=nl_NL
+        run: docker compose -f docker-compose-cli.yml exec wordpress wp config create --dbhost=db --dbname=exampledb --dbuser=exampleuser --dbpass=examplepass --locale=nl_NL
       - name: Install wordpresss
         run: docker compose -f docker-compose-cli.yml exec wordpress wp core install --url=example.com --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@example.com
       - name: Dumping the logs
