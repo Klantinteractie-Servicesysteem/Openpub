@@ -47,8 +47,8 @@ jobs:
         run: sleep 10
       - name: Check if all containers are running
         run: docker ps
-      - name: Download wordpress
-        run: docker compose -f docker-compose-cli.yml exec wordpress wp core download --locale=nl_NL
+#      - name: Download wordpress
+#        run: docker compose -f docker-compose-cli.yml exec wordpress wp core download --locale=nl_NL
       - name: Install wordpresss
         run: docker compose -f docker-compose-cli.yml exec wordpress wp core install --url=example.com --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@example.com
       - name: Configure wordpresss
