@@ -48,10 +48,12 @@ jobs:
         run: docker ps
       - name: ls container
         run: |
-          docker compose -f docker-compose-cli.yml exec wordpress ls /var/www
           docker compose -f docker-compose-cli.yml exec wordpress ls /var/www/html
       - name: Download wordpress
         run: docker compose -f docker-compose-cli.yml exec wordpress wp core download --locale=nl_NL
+      - name: ls container
+        run: |
+          docker compose -f docker-compose-cli.yml exec wordpress ls /var/www/html
       - name: Install wordpresss
         run: docker compose -f docker-compose-cli.yml exec wordpress wp core install --url=example.com --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@example.com
       - name: Configure wordpresss
