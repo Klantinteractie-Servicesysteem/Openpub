@@ -64,8 +64,9 @@ jobs:
           image: wordpress
           fail-build: true
           severity-cutoff: critical
-          output-format: json
-          output-file: ${{ github.workspace }}/security.json
+          output-format: table
+          #output-format: json
+          #output-file: ${{ github.workspace }}/security.json
       - name: Check container security with snyk
         run:  docker scan wordpress --accept-license
       - name: List al the plugins
