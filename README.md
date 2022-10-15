@@ -61,4 +61,4 @@ $ docker compose  exec wordpress wp plugin activate OpenPub
 ```
 
 ## Security
-We use [Grype](https://github.com/anchore/grype) as a scanning tool for containers
+We use [Grype](https://github.com/anchore/grype) as a scanning tool for containers as a [action](https://github.com/marketplace/actions/anchore-container-scan) in our git workkflow.

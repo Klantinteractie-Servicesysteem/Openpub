@@ -54,14 +54,15 @@ jobs:
 #      - name: Scan image with Snyk
 #        run: sudo apt-get install docker-scan-plugin
 #        run:  docker scan wordpress --accept-license
-      - name: Scan image with Trivy
-        run: | 
-          sudo apt-get install trivy
-          trivy image wordpress
+#      - name: Scan image with Trivy
+#        run: |
+#          sudo apt-get install trivy
+#          trivy image wordpress
       - name: Scan image with Gryphe
         uses: anchore/scan-action@v3
         with:
-          image: "wordpress"
+          image: wordpress
+          fail-on: high
       - name: Check container security with snyk
         run:  docker scan wordpress --accept-license
       - name: List al the plugins
