@@ -67,7 +67,7 @@ jobs:
         with:
           files: plugins/OpenPub
           dest: OpenPub.zip
-    - uses: actions/upload-artifact@v1
-      with:
-        name: OpenPub
-        path: ${{ github.workspace }}/OpenPub.zip
+      - uses: actions/upload-artifact@v1
+        with:
+          name: OpenPub
+          path: ${{ github.workspace }}/OpenPub.zip
