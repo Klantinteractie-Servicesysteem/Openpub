@@ -57,8 +57,13 @@ jobs:
         if: (success() || failure())
         run: docker compose down
   publish:
-    - uses: vimtor/action-zip@v1
-      with:
-        files: plugins/OpenPub
-        recursive: false
-        dest: OpenPub.zip
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+      - uses: vimtor/action-zip@v1
+        with:
+          files: plugins/OpenPub
+          dest: OpenPub.zip
