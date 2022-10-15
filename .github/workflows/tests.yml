@@ -47,9 +47,6 @@ jobs:
         run: sleep 20
       - name: Check if all containers are running
         run: docker ps
-      - name: ls container
-        run: |
-          docker compose -f docker-compose-cli.yml exec wordpress ls /var/www/html
       - name: Download wordpress
         run: docker compose -f docker-compose-cli.yml exec wordpress wp core download --locale=nl_NL
       - name: Configure wordpresss
@@ -78,6 +75,15 @@ jobs:
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin list
       - name: Activate the plugin
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin activate OpenPub
+      - name: Install composer
+        run: |
+          - docker compose -f docker-compose-cli.yml exec wordpress curl -sS https://getcomposer.org/installer | php
+          - docker compose -f docker-compose-cli.yml exec wordpress mv composer.phar /usr/local/bin/composer
+      - name: Install en run PHP UNIT
+        run: |
+          - docker compose -f docker-compose-cli.yml exec wordpress composer global require "phpunit/phpunit"         
+          - docker compose -f docker-compose-cli.yml exec wordpress ln -s /root/.composer/vendor/bin/phpunit /usr/bin/phpunit         
+          - docker compose -f docker-compose-cli.yml exec wordpress phpunit wp-content/pugins/OpenPub
       - name: Chores
         if: (success() || failure())
         run: docker compose -f docker-compose-cli.yml down

@@ -5,7 +5,6 @@ FROM wordpress
 #WORKDIR /var/www/wp-content
 #COPY plugins plugins/
 
-
 #COMPOSER
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
