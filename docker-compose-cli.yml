@@ -13,10 +13,10 @@ services:
       WORDPRESS_DB_USER: exampleuser
       WORDPRESS_DB_PASSWORD: examplepass
       WORDPRESS_DB_NAME: exampledb
-    volumes:
-      - ./plugins:/var/www/html/wp-content/plugins
-      - ./CLI.md:/var/www/CLI.md
-    command: tail -F /var/www/html/wp-config.php #prevent container restarts @todo tail a txt file
+#    volumes:
+#      - ./plugins:/var/www/html/wp-content/plugins
+#      - ./CLI.md:/var/www/CLI.md
+    command: tail -F /var/www/html/index.php #prevent container restarts @todo tail a txt file
     #tty: true
 
   db:
