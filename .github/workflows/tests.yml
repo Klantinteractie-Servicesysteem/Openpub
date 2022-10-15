@@ -60,7 +60,7 @@ jobs:
         run: docker compose logs
 #      - name: Scan image with Snyk
 #        run: sudo apt-get install docker-scan-plugin
-#        run:  docker scan wordpress --accept-license
+#        run: docker scan wordpress --accept-license
 #      - name: Scan image with Trivy
 #        run: |
 #          sudo apt-get install trivy
