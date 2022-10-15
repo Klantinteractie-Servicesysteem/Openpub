@@ -52,7 +52,7 @@ jobs:
       - name: Dumping the logs
         run: docker compose logs
       - name: Check container security with snyk
-        run: docker compose logs
+        run: docker scan wordpress
       - name: List al the plugins
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin list
       - name: Activate the plugin
