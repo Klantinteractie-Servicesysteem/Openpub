@@ -77,6 +77,8 @@ jobs:
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin list
       - name: Activate the plugin
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin activate OpenPub
+      - name: Run unit  tests
+        run: docker compose exec wordpress phpunit wp-content/plugins/OpenPub
       - name: Chores
         if: (success() || failure())
         run: docker compose -f docker-compose-cli.yml down
