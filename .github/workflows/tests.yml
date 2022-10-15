@@ -16,6 +16,7 @@ on:
       - staging
       - development
       - acceptance
+      - 'feature/**'
 
 
   # Allows you to run this workflow manually from the Actions tab
