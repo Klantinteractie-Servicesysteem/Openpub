@@ -54,12 +54,12 @@ jobs:
       - name: Check container security with snyk
         run: docker compose logs
       - name: List al the plugins
-        run: docker compose exec wordpress wp plugin list
+        run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin list
       - name: Activate the plugin
-        run: docker compose exec wordpress wp plugin activate OpenPub
+        run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin activate OpenPub
       - name: Chores
         if: (success() || failure())
-        run: docker compose down
+        run: docker compose -f docker-compose-cli.yml down
   publish:
     # Lets make sure we only publish afther an succeful build
     needs: build
