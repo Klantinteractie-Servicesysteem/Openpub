@@ -80,11 +80,11 @@ jobs:
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin activate OpenPub
       - name: Install PHP Unit
         run: |
-        - docker compose -f docker-compose-cli.yml exec wordpress apt-get update
-        - docker compose -f docker-compose-cli.yml exec wordpress apt-get install wget
-        - docker compose -f docker-compose-cli.yml exec wordpress wget -O phpunit https://phar.phpunit.de/phpunit-9.phar
-        - docker compose -f docker-compose-cli.yml exec wordpress chmod +x phpunit
-        - docker compose -f docker-compose-cli.yml exec wordpress ./phpunit --version
+          docker compose -f docker-compose-cli.yml exec wordpress apt-get update
+          docker compose -f docker-compose-cli.yml exec wordpress apt-get install wget
+          docker compose -f docker-compose-cli.yml exec wordpress wget -O phpunit https://phar.phpunit.de/phpunit-9.phar
+          docker compose -f docker-compose-cli.yml exec wordpress chmod +x phpunit
+          docker compose -f docker-compose-cli.yml exec wordpress ./phpunit --version
       - name: Chores
         if: (success() || failure())
         run: docker compose -f docker-compose-cli.yml down
