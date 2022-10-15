@@ -53,6 +53,10 @@ jobs:
         run: docker compose logs
       - name: Check container security with snyk
         run: docker compose logs
+      - name: List al the plugins
+        run: docker compose exec wordpress wp plugin list
+      - name: Activate the plugin
+        run: docker compose exec wordpress wp plugin activate OpenPub
       - name: Chores
         if: (success() || failure())
         run: docker compose down
