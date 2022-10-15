@@ -52,7 +52,7 @@ jobs:
       - name: Dumping the logs
         run: docker compose logs
       - name: Install security with snyk
-        run: sudo apt-get update && apt-get install docker-scan-plugin
+        run: sudo apt-get update && sudo apt-get install docker-scan-plugin
       - name: Check container security with snyk
         run:  docker scan wordpress
       - name: List al the plugins
