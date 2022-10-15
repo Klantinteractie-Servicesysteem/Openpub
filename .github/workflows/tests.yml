@@ -61,10 +61,13 @@ jobs:
         if: (success() || failure())
         run: docker compose down
   publish:
+    # Lets make sure we only publish afther an succeful build
+    needs: build
+
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # Let create an artifact for our plugin
     steps:
       - uses: actions/checkout@v3
       - uses: vimtor/action-zip@v1
