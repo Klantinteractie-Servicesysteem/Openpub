@@ -46,13 +46,16 @@ jobs:
       - name: Build and Run the docker image
         run: docker compose -f docker-compose-cli.yml up -d --build
       - name: Taking some sleep (for containers to come up)
-        run: sleep 45
+        run: sleep 10
       - name: Check if all containers are running
         run: docker ps
       - name: Dumping the logs
         run: docker compose logs
       - name: Check container security with snyk
-        run: docker scan wordpress
+        run: |
+          apt-get update 
+          apt-get install docker-scan-plugin
+          docker scan wordpress
       - name: List al the plugins
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin list
       - name: Activate the plugin
