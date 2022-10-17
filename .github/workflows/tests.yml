@@ -85,11 +85,11 @@ jobs:
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin list
       - name: Activate the plugin
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin activate OpenPub
-#      - name: PHPUnit tests
-#        uses: php-actions/phpunit@v3
-#        with:
-#          configuration: custom/path/to/phpunit.xml
-#          memory_limit: 256M
+      - name: PHPUnit tests
+        uses: php-actions/phpunit@v3
+        with:
+          configuration: plugins/OpenPub/phpunit.xml.dit
+          memory_limit: 256M
       - name: Chores
         if: (success() || failure())
         run: docker compose -f docker-compose-cli.yml down
