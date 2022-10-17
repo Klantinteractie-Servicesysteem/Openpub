@@ -66,35 +66,30 @@ jobs:
           output-format: table
           #output-format: json
           #output-file: ${{ github.workspace }}/security.json
-      - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/node@master
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          command: monitor
-          continue-on-error: true
-      - name: Run Trivy to check for vulnerabilities
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: Trivy
-          format: 'table'
-          ignore-unfixed: true
-          vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
+#      - name: Run Snyk to check for vulnerabilities
+#        uses: snyk/actions/node@master
+#        env:
+#          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+#        with:
+#          command: monitor
+#          continue-on-error: true
+#      - name: Run Trivy to check for vulnerabilities
+#        uses: aquasecurity/trivy-action@master
+#        with:
+#          image-ref: Trivy
+#          format: 'table'
+#          ignore-unfixed: true
+#          vuln-type: 'os,library'
+#          severity: 'CRITICAL,HIGH'
       - name: List al the plugins
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin list
       - name: Activate the plugin
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin activate OpenPub
-#      - name: Install PHP Unit
-#        run: docker compose -f docker-compose-cli.yml exec wordpress apt-get update
-#      - name: Install PHP Unit
-#        run: |
-#          docker compose -f docker-compose-cli.yml exec wordpress apt-get install wget
-#          docker compose -f docker-compose-cli.yml exec wordpress wget -O phpunit https://phar.phpunit.de/phpunit-9.phar
-#          docker compose -f docker-compose-cli.yml exec wordpress chmod +x phpunit
-#          docker compose -f docker-compose-cli.yml exec wordpress ./phpunit --version
-#      - name: Run unit tests
-#        run: docker compose exec wordpress phpunit wp-content/plugins/OpenPub
+#      - name: PHPUnit tests
+#        uses: php-actions/phpunit@v3
+#        with:
+#          configuration: custom/path/to/phpunit.xml
+#          memory_limit: 256M
       - name: Chores
         if: (success() || failure())
         run: docker compose -f docker-compose-cli.yml down
