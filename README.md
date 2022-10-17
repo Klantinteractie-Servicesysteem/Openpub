@@ -62,3 +62,12 @@ $ docker compose  exec wordpress wp plugin activate OpenPub
 
 ## Security
 We use [Grype](https://github.com/anchore/grype) as a scanning tool for containers as a [action](https://github.com/marketplace/actions/anchore-container-scan) in our git workkflow. The flow is wired to fail when an critcal error is found (in wich casses no new release artifacts are created). This can be altered in the test.yamml worklow.  The fail point can be set to `low`,`medium`,`high` or `critical` alternativly the fail point can be ignored completly by setting `fail-build` to `false`. Aditiona configuration for snyk and trivy are also  included (but commented out) and are not recomended.
+
+### Known issues
+Since we use dibian (alpine) images we are confronted with know zero day issues for wich there are no fixes available. Current know issues can be found here
+- CVE-2021-30473
+- CVE-2021-30474
+- CVE-2021-30475
+
+### Choosing your image
+We test the plugin security against the official wordpress images and advice to ALWAYS use the official wordpress images in production BUT this is a plugin so choocing your local wordpress installation is in the end up to you 
