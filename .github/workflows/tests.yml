@@ -66,17 +66,17 @@ jobs:
           output-format: table
           #output-format: json
           #output-file: ${{ github.workspace }}/security.json
-#      - name: Run Snyk to check for vulnerabilities
-#        uses: snyk/actions/node@master
-#        env:
-#          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-#        with:
-#          command: monitor
-#          continue-on-error: true
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
+          continue-on-error: true
 #      - name: Run Trivy to check for vulnerabilities
 #        uses: aquasecurity/trivy-action@master
 #        with:
-#          image-ref: Trivy
+#          image-ref: wordpress
 #          format: 'table'
 #          ignore-unfixed: true
 #          vuln-type: 'os,library'
