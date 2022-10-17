@@ -57,14 +57,7 @@ jobs:
         run: docker compose -f docker-compose-cli.yml exec wordpress wp core install --url=example.com --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@example.com
       - name: Dumping the logs
         run: docker compose logs
-#      - name: Scan image with Snyk
-#        run: sudo apt-get install docker-scan-plugin
-#        run: docker scan wordpress --accept-license
-#      - name: Scan image with Trivy
-#        run: |
-#          sudo apt-get install trivy
-#          trivy image wordpress
-      - name: Scan image with Gryphe
+      - name: Run Gryphe to check for vulnerabilities
         uses: anchore/scan-action@v3
         with:
           image: wordpress
@@ -73,6 +66,21 @@ jobs:
           output-format: table
           #output-format: json
           #output-file: ${{ github.workspace }}/security.json
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          command: monitor
+          continue-on-error: true
+      - name: Run Trivy to check for vulnerabilities
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: Trivy
+          format: 'table'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
       - name: List al the plugins
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin list
       - name: Activate the plugin
