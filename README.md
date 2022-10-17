@@ -41,6 +41,8 @@ Once your docker is running, you can configure the Wordpress installation:
    _Note: these users can now create and maintain publications._
 
 ## Wordpress CLI and Unit Testing
+We base our development on image -> https://github.com/docker-library/wordpress/tree/master/cli/php8.1
+
 
 For unit testing a separate CLI based wordpress is included, this can be started trough
 
@@ -59,6 +61,8 @@ Activating the plugin (if  it isnt activated yet)
 ```CLI
 $ docker compose  exec wordpress wp plugin activate OpenPub
 ```
+
+Unit test are provided by [php unit actions](https://github.com/marketplace/actions/phpunit-php-actions) as a part of the github workflow
 
 ## Security
 We use [Grype](https://github.com/anchore/grype) as a scanning tool for containers as a [action](https://github.com/marketplace/actions/anchore-container-scan) in our git workkflow. The flow is wired to fail when an critcal error is found (in wich casses no new release artifacts are created). This can be altered in the test.yaml worklow.  The fail point can be set to `low`,`medium`,`high` or `critical` alternativly the fail point can be ignored completly by setting `fail-build` to `false`.
