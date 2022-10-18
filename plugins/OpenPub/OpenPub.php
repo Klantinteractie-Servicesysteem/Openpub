@@ -12,7 +12,7 @@
  * Plugin Name:       OpenPub
  * Plugin URI:        https://conduction.nl/openpub
  * Description:       A plugin for publishing posts in the pub standard
- * Version:           1.0.3
+ * Version:           1.0.4
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Conduction
