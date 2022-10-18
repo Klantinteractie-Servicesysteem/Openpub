@@ -130,7 +130,7 @@ ENTRYPOINT ["docker-entrypoint.sh"]
 USER www-data
 CMD ["wp", "shell"]
 
-RUN wp core download --locale=nl_NL
+#RUN wp core download --locale=nl_NL
 #RUN wp config create --dbhost=db --dbname=exampledb --dbuser=exampleuser --dbpass=examplepass --locale=nl_NL
-RUN wp core install --url=example.com --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@example.com
+#RUN wp core install --url=example.com --title=Example --admin_user=supervisor --admin_password=strongpassword --admin_email=info@example.com
 
