@@ -4,25 +4,6 @@
         "title": "Publicatie",
         "fields": [
             {
-                "key": "field_6347f2b324af5",
-                "label": "Titel",
-                "name": "publication_title",
-                "type": "text",
-                "instructions": "Verplicht: vul hier de titel van de publicatie.",
-                "required": 1,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
                 "key": "field_6347f7be62306",
                 "label": "Publicatie",
                 "name": "publication_content",
@@ -86,23 +67,6 @@
                 "multiple": 0
             },
             {
-                "key": "field_6347fbe3f141f",
-                "label": "Startdatum",
-                "name": "publication_start_date",
-                "type": "date_time_picker",
-                "instructions": "Optioneel: selecteer hier de startdatum (en tijd) van de publicatie.",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "display_format": "Y-m-d H:i:s",
-                "return_format": "d/m/Y g:i a",
-                "first_day": 1
-            },
-            {
                 "key": "field_6347fb59f141e",
                 "label": "Einddatum",
                 "name": "publication_end_date",
@@ -116,7 +80,7 @@
                     "id": ""
                 },
                 "display_format": "Y-m-d H:i:s",
-                "return_format": "d/m/Y g:i a",
+                "return_format": "d\/m\/Y g:i a",
                 "first_day": 1
             },
             {
@@ -124,7 +88,7 @@
                 "label": "Belangrijke publicatie",
                 "name": "publication_featured",
                 "type": "true_false",
-                "instructions": "Optioneel: markeer de publicatie als belangrijk, waardoor deze beter zichtbaar wordt.",
+                "instructions": "Optioneel: maak de publicatie uitgelicht, waardoor die beter zichtbaar wordt.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -134,7 +98,7 @@
                 },
                 "message": "",
                 "default_value": 0,
-                "ui_on_text": "Belangrijk",
+                "ui_on_text": "Uitgelicht",
                 "ui_off_text": "Normaal",
                 "ui": 1
             }
@@ -171,6 +135,6 @@
         ],
         "active": true,
         "description": "",
-        "show_in_rest": 0
+        "show_in_rest": 1
     }
 ]
