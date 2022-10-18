@@ -66,6 +66,7 @@ function register_kiss_openpub_post_type() {
             'has_archive'   => true,
             'show_in_rest'  => true,
             'supports'      => array(
+                'title',
                 'revisions'
             ),
             'capabilities' => array(
@@ -221,3 +222,37 @@ if ( !get_role( 'publication_contributor' ) ) {
         )
     );
 }
+
+/**
+ * Rewrite kiss_openpub_pub overview view
+ */
+
+function change_publication_columns( $columns ) {
+    return array(
+        'title' => 'Title',
+        'publication_type' => 'Type',
+        'publication_skill' => 'Skills',
+        'date' => 'Date',
+    );
+}
+
+  function custom_publication_columns( $column ) {
+    if ( $column == 'publication_title' ) { echo get_field( 'publication_title' ); }
+    
+    if ( $column == 'publication_type' ) { 
+        $typeId = get_field ( 'publication_type' ); 
+        $term = get_term ( $typeId, 'openpub_type' );
+        echo $term->name;
+    }
+    
+    if ( $column == 'publication_skill' ) { 
+        $skillsIds = get_field ( 'publication_skill' );
+
+        foreach ( $skillsIds as $key => $skillId ) {
+            echo get_term ( $skillId, 'openpub_skill' )->name . " ";
+        }
+    }
+  }
+
+  add_action( 'manage_kiss_openpub_pub_posts_custom_column', 'custom_publication_columns' );
+  add_filter( 'manage_kiss_openpub_pub_posts_columns', 'change_publication_columns' );
