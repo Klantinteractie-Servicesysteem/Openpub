@@ -128,7 +128,7 @@ jobs:
     permissions:
       contents: read
       packages: write
-      
+
     # Let create an artifact for our plugin
     steps:
       - uses: actions/checkout@v3

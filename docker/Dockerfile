@@ -123,7 +123,7 @@ RUN set -ex; \
 
 VOLUME /var/www/html
 
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY docker/docker-entrypoint.sh /usr/local/bin/
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 USER www-data
