@@ -94,16 +94,19 @@ jobs:
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin list
       - name: Activate the plugin
         run: docker compose -f docker-compose-cli.yml exec wordpress wp plugin activate OpenPub
-      - name: PHPUnit tests
+      - name: Run PHPUnit tests
         uses: php-actions/phpunit@v3
         with:
           configuration: plugins/OpenPub/phpunit.xml.dit
           memory_limit: 256M
+      - name: Run Postman Tests
+        uses: matt-ball/newman-action@master
+        with:
+          collection: postman_collection.json
+          #environment: postman_environment.json
       - name: Chores
         if: (success() || failure())
         run: docker compose -f docker-compose-cli.yml down
-      - name: Run Postman Tests
-        run: newman run api/public/schema/*.postman_collection.json
 
   publish:
     # Lets make sure we only publish afther an succeful build
