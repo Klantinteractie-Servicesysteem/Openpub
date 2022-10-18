@@ -15,7 +15,7 @@ services:
       WORDPRESS_DB_PASSWORD: examplepass
       WORDPRESS_DB_NAME: exampledb
     volumes:
-      - ./html:/var/www/html
+#      - ./html:/var/www/html
       - ./plugins:/var/www/html/wp-content/plugins
     command: tail -F /var/www/html/index.php #prevent container restarts @todo tail a txt fil
 #    tty: true
