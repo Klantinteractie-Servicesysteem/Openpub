@@ -4,8 +4,8 @@ services:
   wordpress:
     image: wordpress:cli-php8.1
     restart: always
-    build:
-      context: ./docker
+#    build:
+#      context: ./docker
     ports:
       - 80:80
       - 443:443
@@ -16,7 +16,7 @@ services:
       WORDPRESS_DB_NAME: exampledb
     volumes:
       - ./plugins:/var/www/html/wp-content/plugins
-    command: tail -F /var/www/html/index.php #prevent container restarts @todo tail a txt file
+    command: tail -F /var/www/html/index.php #prevent container restarts @todo tail a txt fil
 #    tty: true
 
   db:
