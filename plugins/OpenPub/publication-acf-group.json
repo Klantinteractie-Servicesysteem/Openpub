@@ -88,7 +88,7 @@
                 "label": "Belangrijke publicatie",
                 "name": "publication_featured",
                 "type": "true_false",
-                "instructions": "Optioneel: maak de publicatie uitgelicht, waardoor die beter zichtbaar wordt.",
+                "instructions": "Optioneel:  markeer de publicatie als belangrijk, waardoor deze beter zichtbaar wordt.",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
