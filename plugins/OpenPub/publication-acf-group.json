@@ -80,7 +80,7 @@
                     "id": ""
                 },
                 "display_format": "Y-m-d H:i:s",
-                "return_format": "d\/m\/Y g:i a",
+                "return_format": "d/m/Y g:i a",
                 "first_day": 1
             },
             {
