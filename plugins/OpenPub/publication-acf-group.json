@@ -98,7 +98,7 @@
                 },
                 "message": "",
                 "default_value": 0,
-                "ui_on_text": "Uitgelicht",
+                "ui_on_text": "Belangrijk",
                 "ui_off_text": "Normaal",
                 "ui": 1
             }
