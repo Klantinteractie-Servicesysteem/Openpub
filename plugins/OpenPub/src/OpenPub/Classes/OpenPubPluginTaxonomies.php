@@ -14,7 +14,7 @@ class OpenPubPluginTaxonomies
         $this->plugin = $plugin;
         $this->add_taxanomy();
     }
-    function kiss_openpub_taxonomie() {
+    function register_kiss_openpub_taxonomies() {
         // Type of publications
         $labels = array(
             'name'              => _x( 'Types', 'taxonomy general name' ),
@@ -69,7 +69,7 @@ class OpenPubPluginTaxonomies
 
     private function add_taxanomy(): void
     {
-        add_action( 'init', 'kiss_openpub_taxonomie' );
+        add_action( 'init', 'register_kiss_openpub_taxonomies' );
     }
 
 }
