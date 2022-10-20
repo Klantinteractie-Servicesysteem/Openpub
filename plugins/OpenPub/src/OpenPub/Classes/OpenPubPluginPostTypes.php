@@ -15,7 +15,7 @@ class OpenPubPluginPostTypes
         $this->add_posttype();
     }
 
-    function kiss_openpub_post_type() {
+    function register_kiss_openpub_post_type() {
         register_post_type('kiss_openpub_pub',
             array(
                 'labels'      => array(
@@ -45,7 +45,7 @@ class OpenPubPluginPostTypes
 
     private function add_posttype(): void
     {
-        add_action('init', 'kiss_openpub_post_type');
+        add_action('init', 'register_kiss_openpub_post_type');
     }
 
 }
