@@ -12,7 +12,7 @@
  * Plugin Name:       OpenPub
  * Plugin URI:        https://conduction.nl/openpub
  * Description:       A plugin for publishing posts in the pub standard
- * Version:           1.0.4
+ * Version:           1.0.5
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Conduction
@@ -256,3 +256,12 @@ function change_publication_columns( $columns ) {
 
   add_action( 'manage_kiss_openpub_pub_posts_custom_column', 'custom_publication_columns' );
   add_filter( 'manage_kiss_openpub_pub_posts_columns', 'change_publication_columns' );
+
+
+/**
+ * Set default value for publication_end_date field
+ */
+add_filter( 'acf/load_field/name=publication_end_date', function ($field) {
+    $field['default_value'] = mktime(0, 0, 0, date("m"),   date("d"),   date("Y") + 100);
+    return $field;
+});

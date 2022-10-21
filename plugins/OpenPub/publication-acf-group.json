@@ -71,7 +71,7 @@
                 "label": "Einddatum",
                 "name": "publication_end_date",
                 "type": "date_time_picker",
-                "instructions": "Optioneel: selecteer hier de einddatum (en tijd) van de publicatie.",
+                "instructions": "Optioneel: pas de einddatum aan.\r\n<br/><br/>\r\n<strong>Let op: als je een datum in het verleden selecteert, wordt de publicatie niet getoond.</strong>",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -79,9 +79,10 @@
                     "class": "",
                     "id": ""
                 },
-                "display_format": "Y-m-d H:i:s",
+                "display_format": "j F Y",
                 "return_format": "d/m/Y g:i a",
-                "first_day": 1
+                "first_day": 1,
+                "default_value": 4821897600
             },
             {
                 "key": "field_6347fcca8aa00",
