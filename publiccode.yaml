@@ -1,0 +1,12 @@
+name: "OpenPub"
+
+description: 
+  shortDescription:
+    "Open pub is een onderdeel van OpenWeb concept en behelst het beheren en publiceren van nieuwsberichten en taxanomien"
+
+  longDescription:
+    "Open pub is een onderdeel van OpenWeb concept en behelst het beheren en publiceren van nieuwsberichten en taxanomien"
+
+nl:
+  commonground:
+    layerType: "service"
