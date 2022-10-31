@@ -1,20 +1,45 @@
 name: "OpenPub"
+
+publiccodeYmlVersion: 1.0
 url: "https://github.com/Klantinteractie-Servicesysteem/Openpub"
+
 platforms: "web"
+
 categories: 
   - "applicant-tracking"
   - "appointment-scheduling"
+  
 roadmap: "https://github.com/orgs/Klantinteractie-Servicesysteem/projects/1/views/1"
+
 softwareType: "standalone/web"
+
+inputTypes: 
+  - application/json
+  - application/ld+json
+  - application/hal+json
+
+outputTypes:
+  - application/json
+  - application/ld+json
+  - application/hal+json
+
 intendedAudience:
   scope: "government"
+  
 description: 
-  shortDescription:
-    "Open pub is een onderdeel van OpenWeb concept en behelst het beheren en publiceren van nieuwsberichten en taxanomien"
-  longDescription:
-    "Open pub is een onderdeel van OpenWeb concept en behelst het beheren en publiceren van nieuwsberichten en taxanomien"
+  nl:
+    localisedName: "OpenPub"
+    shortDescription: "Open pub is een onderdeel van OpenWeb concept en behelst het beheren en publiceren van nieuwsberichten en taxanomien"
+    longDescription: "Open pub is een onderdeel van OpenWeb concept en behelst het beheren en publiceren van nieuwsberichten en taxanomien"
+
 maintenance:
   type: "internal"
+
 nl:
   commonground:
     layerType: "service"
+    
+dependsOn:
+  open:
+    - name: common-gateway
+      versionMin: 1.0.0
