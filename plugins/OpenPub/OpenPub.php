@@ -189,6 +189,10 @@ function init_publication_types() {
 
     $results = json_decode($body)->results;
 
+    if ( is_null($results) ) {
+        return;
+    }
+
     $gatewayPublicationTypes = array_map(
         "mapItemToNameArray",
         $results
@@ -231,6 +235,10 @@ function init_publication_skills() {
     $body = wp_remote_retrieve_body($response);
 
     $results = json_decode($body)->results;
+
+    if ( is_null($results) ) {
+        return;
+    }
 
     $gatewayPublicationSkills = array_map(
         "mapItemToNameArray",
