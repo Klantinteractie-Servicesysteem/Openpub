@@ -53,6 +53,13 @@ add_action('init', function () {
 });
 
 /**
+ * Map item array to name array (string[])
+ */
+function mapItemToNameArray ( $item ) { 
+    return $item->name;
+};
+
+/**
  * Register post types
  */
 function register_kiss_openpub_post_type() {
@@ -167,36 +174,95 @@ add_action( 'init', 'register_kiss_openpub_taxonomies' );
  * Initiate taxonomies values
  */
 function init_publication_types() {
-    $publicationTypes = ["Nieuws", "Werkinstructie"];
+    $key = get_option('openpub_api_key');
+    $domain = get_option('openpub_api_domain');
 
-    foreach ( $publicationTypes as $publicationType ) {
-        wp_insert_term($publicationType, "openpub_type");
+    $response = wp_remote_get($domain . '/api/ref/openpub_types', array(
+            'headers' => array(
+                'Content-Type' => 'application/json',
+                'Authorization' => $key,
+            )
+        )
+    );
+
+    $body = wp_remote_retrieve_body($response);
+
+    $results = json_decode($body)->results;
+
+    if ( is_null($results) ) {
+        return;
+    }
+
+    $gatewayPublicationTypes = array_map(
+        "mapItemToNameArray",
+        $results
+    );
+
+    $currentPublicationTypes = array_map(
+        "mapItemToNameArray",
+        get_terms( array(
+            'taxonomy' => 'openpub_type',
+            'hide_empty' => false,    
+        ))
+    );
+
+    foreach ( $gatewayPublicationTypes as $type ) {
+        wp_insert_term( $type, 'openpub_type' );
+    }
+
+    foreach ( $currentPublicationTypes as $type ) {
+        if ( !in_array($type, $gatewayPublicationTypes) ) {
+            $type = get_term_by('name', $type, 'openpub_type');
+
+            wp_delete_term( $type->term_taxonomy_id, 'openpub_type' );
+        }
     }
 }
 add_action( 'init', 'init_publication_types' );
 
 function init_publication_skills() {
-    $publicationSkills = array(
-        "Afspraken", 
-        "Afval",
-        "Algemeen",
-        "Belastingen",
-        "Bouw en ruimtelijke ordening",
-        "Burgerzaken",
-        "Corona",
-        "Groen",
-        "KCC",
-        "Milieu",
-        "Openingstijden",
-        "Overig",
-        "Toeslagen",
-        "Vergunningen",
-        "Werk en inkomen",
-        "Zon"
+    $key = get_option('openpub_api_key');
+    $domain = get_option('openpub_api_domain');
+
+    $response = wp_remote_get($domain . '/api/ref/openpub_skills?limit=100', array(
+            'headers' => array(
+                'Content-Type' => 'application/json',
+                'Authorization' => $key,
+            )
+        )
     );
 
-    foreach ( $publicationSkills as $publicationSkill ) {
-        wp_insert_term( $publicationSkill, 'openpub_skill' );
+    $body = wp_remote_retrieve_body($response);
+
+    $results = json_decode($body)->results;
+
+    if ( is_null($results) ) {
+        return;
+    }
+
+    $gatewayPublicationSkills = array_map(
+        "mapItemToNameArray",
+        $results
+    );
+
+    $currentPublicationSkills = array_map(
+        "mapItemToNameArray",
+        get_terms( array(
+            'taxonomy' => 'openpub_skill',
+            'hide_empty' => false,    
+        ))
+    );
+
+    foreach ( $gatewayPublicationSkills as $skill ) {
+        wp_insert_term( $skill, 'openpub_skill' );
+    }
+
+    foreach ( $currentPublicationSkills as $skill ) {
+        if ( !in_array($skill, $gatewayPublicationSkills) ) {
+            $skill = get_term_by('name', $skill, 'openpub_skill');
+
+            wp_delete_term( $skill->term_taxonomy_id, 'openpub_skill' );
+        }
     }
 }
 add_action( 'init', 'init_publication_skills' );
