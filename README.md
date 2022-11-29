@@ -113,7 +113,14 @@ _Note: Users with the role "KISS Redacteur" can manage publications, an account 
 
 _Note: removed publications can be found and restored in the trash, once the trash is emptied they can no longer be restored._
 
+## Proxy communication via Gateway
 
+_Optional parameter: `per_page`._
+
+- `GET {gateway_environment_uri}/api/openpub/openpub_type`
+  _Returns all openpub_type objects within the WordPress environment, via a gateway proxy._
+- `GET {gateway_environment_uri}/api/openpub/openpub_skill`
+  _Returns all openpub_skill objects within the WordPress environment, via a gateway proxy._
 
 
 
