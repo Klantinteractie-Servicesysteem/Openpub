@@ -39,6 +39,7 @@ Once your docker is running, you can configure the Wordpress installation:
 4. Upload the file `plugins/OpenPub/publication-acf-group.json` within the "Veldgroepen Importeren" option
 5. Create one (or multiple) new users with the "KISS Redacteur" role  
    _Note: these users can now create and maintain publications._
+6. Navigate to "OpenPub" > "Configuration" and add the gateway URI to the "API Domain" field and the gateway API key to the "API KEY" field.
 
 ## Wordpress CLI and Unit Testing
 
