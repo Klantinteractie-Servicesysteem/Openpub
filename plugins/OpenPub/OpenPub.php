@@ -185,36 +185,35 @@ function init_publication_types() {
         )
     );
 
-    $body = wp_remote_retrieve_body($response);
+    if ( is_array( $response ) && !is_wp_error( $response ) ) {
+        $body = wp_remote_retrieve_body($response);
 
-    $results = json_decode($body)->results;
+        $results = json_decode($body)->results;
 
-    if ( is_null($results) ) {
-        return;
-    }
 
-    $gatewayPublicationTypes = array_map(
-        "mapItemToNameArray",
-        $results
-    );
+        $gatewayPublicationTypes = array_map(
+            "mapItemToNameArray",
+            $results
+        );
 
-    $currentPublicationTypes = array_map(
-        "mapItemToNameArray",
-        get_terms( array(
-            'taxonomy' => 'openpub_type',
-            'hide_empty' => false,    
-        ))
-    );
+        $currentPublicationTypes = array_map(
+            "mapItemToNameArray",
+            get_terms( array(
+                'taxonomy' => 'openpub_type',
+                'hide_empty' => false,    
+            ))
+        );
 
-    foreach ( $gatewayPublicationTypes as $type ) {
-        wp_insert_term( $type, 'openpub_type' );
-    }
+        foreach ( $gatewayPublicationTypes as $type ) {
+            wp_insert_term( $type, 'openpub_type' );
+        }
 
-    foreach ( $currentPublicationTypes as $type ) {
-        if ( !in_array($type, $gatewayPublicationTypes) ) {
-            $type = get_term_by('name', $type, 'openpub_type');
+        foreach ( $currentPublicationTypes as $type ) {
+            if ( !in_array($type, $gatewayPublicationTypes) ) {
+                $type = get_term_by('name', $type, 'openpub_type');
 
-            wp_delete_term( $type->term_taxonomy_id, 'openpub_type' );
+                wp_delete_term( $type->term_taxonomy_id, 'openpub_type' );
+            }
         }
     }
 }
@@ -232,38 +231,37 @@ function init_publication_skills() {
         )
     );
 
-    $body = wp_remote_retrieve_body($response);
+    if ( is_array( $response ) && !is_wp_error( $response ) ) {
+        $body = wp_remote_retrieve_body($response);
 
-    $results = json_decode($body)->results;
+        $results = json_decode($body)->results;
 
-    if ( is_null($results) ) {
-        return;
-    }
 
-    $gatewayPublicationSkills = array_map(
-        "mapItemToNameArray",
-        $results
-    );
+        $gatewayPublicationSkills = array_map(
+            "mapItemToNameArray",
+            $results
+        );
 
-    $currentPublicationSkills = array_map(
-        "mapItemToNameArray",
-        get_terms( array(
-            'taxonomy' => 'openpub_skill',
-            'hide_empty' => false,    
-        ))
-    );
+        $currentPublicationSkills = array_map(
+            "mapItemToNameArray",
+            get_terms( array(
+                'taxonomy' => 'openpub_skill',
+                'hide_empty' => false,    
+            ))
+        );
 
-    foreach ( $gatewayPublicationSkills as $skill ) {
-        wp_insert_term( $skill, 'openpub_skill' );
-    }
-
-    foreach ( $currentPublicationSkills as $skill ) {
-        if ( !in_array($skill, $gatewayPublicationSkills) ) {
-            $skill = get_term_by('name', $skill, 'openpub_skill');
-
-            wp_delete_term( $skill->term_taxonomy_id, 'openpub_skill' );
+        foreach ( $gatewayPublicationSkills as $skill ) {
+            wp_insert_term( $skill, 'openpub_skill' );
         }
-    }
+
+        foreach ( $currentPublicationSkills as $skill ) {
+            if ( !in_array($skill, $gatewayPublicationSkills) ) {
+                $skill = get_term_by('name', $skill, 'openpub_skill');
+
+                wp_delete_term( $skill->term_taxonomy_id, 'openpub_skill' );
+            }
+        }
+    }    
 }
 add_action( 'init', 'init_publication_skills' );
 
