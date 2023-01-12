@@ -16,8 +16,8 @@ Deze repository beheert een variant van de OpenPub plugin die niet afhankenlijk 
 
 ## Design afwegingen
 
--   De repository maakt gebruik van een oficial WordPress image, t.b.v. development
--   De repository maakt gebruik van de Open Source WordPress-plugin [Advanced Custom Fields](https://github.com/AdvancedCustomFields)
+-   De repository maakt gebruik van een oficial WordPress image, t.b.v. development (minimaal WordPress versie 6+)
+-   De repository maakt gebruik van de Open Source WordPress-plugin [Advanced Custom Fields](https://github.com/AdvancedCustomFields)  (minimaal plugin versie 6+)
 
 ## Local development environment
 
@@ -40,6 +40,13 @@ You can than run [WordPress CLI commands](https://developer.wordpress.org/cli/co
 ```CLI
 $docker-compose exec wordpress wp plugin list
 ```
+
+## Local development configuration
+
+Once you have installed WordPress and have it running within your cluster, you can configure the Wordpress installation:
+
+1. Navigate to `localhost/wp-admin`, initiate Wordpress and login
+
 
 ## Installation of the plugin
 See the general [KISS-documentation](https://kiss-klantinteractie-servicesysteem.readthedocs.io/) for information about installation and activation of the plugin.
