@@ -2,7 +2,7 @@
 
 [![Automated Testing](https://github.com/Klantinteractie-Servicesysteem/Openpub/actions/workflows/tests.yml/badge.svg)](https://github.com/Klantinteractie-Servicesysteem/Openpub/actions/workflows/tests.yml)
 
-Open pub is een onderdeel van OpenWeb concept en behelst het beheren en publiceren van nieuwsberichten en taxanomien
+Open pub is een onderdeel van OpenWeb concept en behelst het beheren en publiceren van nieuwsberichten en taxanomien. Binnen KISS gebruiken we OpenPub-api-specificatie voor het beheren en lezen van Nieuws en Werkinstructies. 
 
 ## Opzet van de plugin
 
@@ -11,11 +11,12 @@ Open pub is een onderdeel van OpenWeb concept en behelst het beheren en publicer
 
 ## Opzet van deze repository
 
-Deze repository beheert een variant van de OpenPub plugin die niet afhankenlijk is van composer en commerciele Closed Source software. Deze repositoery voorziet daarnaast ook in een automatische testflow voor unit en integratietesting en een lokale ontwikkelomgeving.
+Deze repository beheert een variant van de OpenPub plugin die niet afhankenlijk is van composer en commerciele Closed Source software. Deze repository voorziet daarnaast ook in een automatische testflow voor unit en integratietesting en een lokale ontwikkelomgeving. 
+
 
 ## Design afwegingen
 
--   De repository maakt gebruik van een oficial WordPress image
+-   De repository maakt gebruik van een oficial WordPress image, t.b.v. development
 -   De repository maakt gebruik van de Open Source WordPress-plugin [Advanced Custom Fields](https://github.com/AdvancedCustomFields)
 
 ## Local development environment
@@ -40,5 +41,5 @@ You can than run [WordPress CLI commands](https://developer.wordpress.org/cli/co
 $docker-compose exec wordpress wp plugin list
 ```
 
-## Documentation
-Documentation is included in the general [KISS-documentation](https://kiss-klantinteractie-servicesysteem.readthedocs.io/).
+## Installation of the plugin
+See the general [KISS-documentation](https://kiss-klantinteractie-servicesysteem.readthedocs.io/) for information about installation and activation of the plugin.
