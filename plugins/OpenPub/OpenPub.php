@@ -188,8 +188,9 @@ function init_publication_types() {
     if ( is_array( $response ) && !is_wp_error( $response ) ) {
         $body = wp_remote_retrieve_body($response);
 
-        $results = json_decode($body)->results;
-
+        $decoded_body = json_decode($body);
+        
+        $results = isset($decoded_body->results) ? $decoded_body->results : [];
 
         $gatewayPublicationTypes = array_map(
             "mapItemToNameArray",
@@ -234,7 +235,9 @@ function init_publication_skills() {
     if ( is_array( $response ) && !is_wp_error( $response ) ) {
         $body = wp_remote_retrieve_body($response);
 
-        $results = json_decode($body)->results;
+        $decoded_body = json_decode($body);
+        
+        $results = isset($decoded_body->results) ? $decoded_body->results : [];
 
 
         $gatewayPublicationSkills = array_map(
