@@ -12,7 +12,7 @@
  * Plugin Name:       OpenPub
  * Plugin URI:        https://conduction.nl/openpub
  * Description:       A plugin for publishing posts in the pub standard
- * Version:           1.0.6
+ * Version:           1.0.7
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Conduction
@@ -189,8 +189,12 @@ function init_publication_types() {
         $body = wp_remote_retrieve_body($response);
 
         $decoded_body = json_decode($body);
-        
-        $results = isset($decoded_body->results) ? $decoded_body->results : [];
+
+        if (!isset($decoded_body->results)) {
+            return;
+        }
+
+        $results = $decoded_body->results;
 
         $gatewayPublicationTypes = array_map(
             "mapItemToNameArray",
@@ -237,7 +241,11 @@ function init_publication_skills() {
 
         $decoded_body = json_decode($body);
         
-        $results = isset($decoded_body->results) ? $decoded_body->results : [];
+        if (!isset($decoded_body->results)) {
+            return;
+        }
+
+        $results = $decoded_body->results;
 
 
         $gatewayPublicationSkills = array_map(
